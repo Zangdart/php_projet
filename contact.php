@@ -1,17 +1,9 @@
 <?php
-	// Initialisation ici
+require_once('views/page_top.php');// Inclusion des defines
 ?>
-<!DOCTYPE html>
-<html>
-<head lang="en">
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
-<div id="wrapper">
-<?php 
-	echo '';
+<main>
+	<h1>Contact</h1>
+</main>
+<?php
+require_once('views/page_bottom.php');// Inclusion des defines
 ?>
-</div>
-</body>
-</html>

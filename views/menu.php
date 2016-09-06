@@ -1,17 +1,13 @@
 <?php
-	// Initialisation ici
+require_once (dirname(__FILE__).'/../defines.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head lang="en">
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-<body>
-<div id="wrapper">
-<?php 
-	echo '';
-?>
-</div>
-</body>
-</html>
+
+<nav>
+    <ul>
+        <?php foreach ($menu_data as $label => $filename) { ?>
+            <li>
+                <a href="<?= $filename?>"><?= $label?></a>
+            </li>
+        <?php } ?>
+    </ul>
+</nav>
