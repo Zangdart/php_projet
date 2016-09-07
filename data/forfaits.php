@@ -111,7 +111,7 @@ $forfaits_data = array(
 		FORF_PHOTO2 => "station_ski.jpg"
 	),
 	'23' => array(
-		FORF_NOM => "ski de fond raquette à Tremblant",
+		FORF_NOM => "Ski de fond raquette à Tremblant",
 		FORF_CATEGORY => "Sports d'hiver",
 		FORF_DESCRIPTION => "Le produit 1 bla bla bla...",
 		FORF_DUREE => 1,

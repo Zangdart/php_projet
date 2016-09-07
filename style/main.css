@@ -1,3 +1,7 @@
+body {
+    background-color: lightblue;
+}
+
 * { /*TOUCHE TOUT LE DOCUMENT=RESET*/
     margin: 0;
     padding: 0;
@@ -9,14 +13,150 @@
     width: 80%;
 }
 
+nav {
+    text-align: right; /*POUR METTRE LE MENU A DROITE*/
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+header {
+    margin: 50px;
+}
 
-nav>ul>li {
-    text-decoration: none;
-    float: right;
+nav ul li {
     display: inline-block; /*CECI EST LE MENU*/
-    border-bottom: 2px solid lightgrey;
+    font-family: "Garamond", sans-serif;
     text-align: center;
+    list-style-type: none;
+    font-size: 250%;
+    width: 12%;
+    padding: 10px;
+
+}
+
+header nav ul li {
+    border: 2px solid royalblue;
+    border-radius: 200px;
+}
+
+nav ul li a {
+    text-decoration: none;
     color: goldenrod;
+}
+
+nav a:hover {
+    color: purple;
+}
+
+footer nav ul li a {
+    color: ghostwhite;
+}
+
+footer nav {
+    text-align: center; /*mettre le bottom en center footer*/
+    border-top: 2px solid grey;
+    background-color: royalblue;
+    color: ghostwhite;
+    height: 60px;
+    line-height: 40px;
+
+}
+
+footer nav ul li a {
+    color: ghostwhite;
+
+}
+
+/*------------------------------------------------------------------MENUS : HEADER ET FOOTER----------------------------*/
+h1 {
+    color: goldenrod;
+    margin-bottom: 50px;
+}
+
+.container div p img {
+    width: 100%;
+}
 
 
+.container div{
+    width: 30%; /*mettre 48% si juste 2 et enlever 3ie div dans catalog*/
+    text-align: justify;
+    display: inline-block;
+    padding: 10px;
+    font-family: "Garamond", sans-serif;
+    font-size: 120%;
+    line-height: 30px;
+}
+
+.categorie h2 {
+    font-family: "Garamond", sans-serif;
+    font-size: 200%;
+    color:goldenrod;
+
+}
+
+/*-----------------------------------------------------SLIDER---------------------------------------------------------*/
+li img{
+    width:900px;
+    /*height: 500px;*/
+}
+
+#slider {
+    position: relative;    /* le parent positionné */
+    width: 900px;          /* Largeur des images (1 élément du slideshow) */
+    height: 500px;         /* Hauteur des images  */
+    overflow: hidden;      /* on "clipe" les images dans le conteneur */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: 20%;
+    /*margin-bottom: 2%;*/
+}
+
+/*Le ul qui contient les images */
+#sContent {
+    position: absolute; /* on sort l'élément du flux */
+    top: 0;             /* on le positionne précisément dans... */
+    left: 0;			/* l'angle haut gauche de son parent positionné */
+    margin: 0;
+    padding: 0;
+    width: calc(900px * 5);          /* (car 5 images) */
+    /*
+     * Mise en place d'une transition CSS sur la propriété  left
+     * pour un défilement horizontal plus fluide
+     */
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    -webkit-transition: left 2s;
+    transition: left 2s;
+}
+/* Pour mettre les éléments li côte à côte */
+#sContent li {
+    display: inline;
+}
+
+/* Les flèches gauche et droite */
+#slider a {
+    width:77px; /*Il faut dimensionner le a à la taille de l'image de flèche*/
+    height:77px;
+    position:absolute;
+    top:calc(50% - 50px);
+    background-image: url('arrows.png');
+    z-index: +1;
+    /* Opacité pour effet au survol */
+    opacity:0.2; /* Opacité par défaut */
+    transition: opacity 0.3s;
+}
+
+#slider a:hover {
+    opacity:1;
+}
+
+#slider a#prev {
+    left: 15px;
+    background-position: 0 0; /* Extraire la bonne image dans le fichier des flèches */
+}
+
+#slider a#next {
+    right: 15px;
+    background-position: 77px 0;
 }
