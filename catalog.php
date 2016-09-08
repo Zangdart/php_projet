@@ -45,11 +45,9 @@ if (array_key_exists('categorie', $_GET) && in_array($_GET['categorie'], get_cat
 					<p><img src="<?= IMG_PATH . $forfait[FORF_PHOTO1] ?>" alt="belle image"/></p>
 					</div>
 						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in.Duis vulputate semper . Duis vulputate semper .Etiam quis justo malesuada, congue lacus ac, interdum lacus. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus .   </p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus. Proin non nisl ut ante finibus condimentum. Aliquam erat volutpat. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl. Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien. Duis sit amet ornare dui. Donec porttitor urna sit amet enim faucibus, eget porta sem pretium. Nullam est ante, interdum eget neque vitae, ullamcorper accumsan nibh. In vitae lacus id orci placerat imperdiet ac tempus urna.Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien. Duis sit amet ornare dui.Nullam  ante, interdum eget neque vitae, ullamcorper accumsan.   </p>
 						</div>
-						<div>
-							<p><img src="<?= IMG_PATH . $forfait[FORF_PHOTO2] ?>" alt="belle image"/></p>
-						</div>
+
 
 					</div>
 					<?php
