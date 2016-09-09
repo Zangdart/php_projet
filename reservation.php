@@ -1,8 +1,16 @@
 <?php
 require_once('views/page_top.php');// Inclusion des defines
+require_once('data/forfaits.php');// Inclusion des forfaits
+
+$id_forfait=$_GET['forfait_id']; /*faire un if array key exist */
+$forfait=get_forfaits()[$id_forfait];
+var_dump($id_forfait);
 ?>
 <main>
     <div id="wrapper">
+
+
+
 
         <h2>Formulaires</h2>
         <div id="contenu">
@@ -36,10 +44,20 @@ require_once('views/page_top.php');// Inclusion des defines
         </div>
 
 </main>
+
+<!--PARTIE DYNAMIQUE ICI-->
+<?php
+//echo get_forfaits();
+////?>
+
+<?php
+echo $forfait;
+//?>
+
+
 <?php
 require_once('views/page_bottom.php');// Inclusion des defines
 ?>
 
 
-<!--Debut du forrmulaire -->
 

@@ -29,9 +29,9 @@ nav ul li {
     font-family: "Garamond", sans-serif;
     text-align: center;
     list-style-type: none;
-    font-size: 200%;
+    font-size: 150%;
     width: 12%;
-    padding: 10px;
+    padding: 8px;
 
 }
 
@@ -77,19 +77,31 @@ h2 {
     color: goldenrod;
     text-align: center;
 }
+/*.container p {*/
+    /*display: inline-block;*/
 
+/*}*/
 .container div p img {
     width: 100%;
-}
+    display: inline-block;
+    margin-left: 8px;
 
+}
+/*.container p {*/
+    /*font-size: 120%;*/
+    /*line-height: 30px;*/
+    /*!*margin-left: 50px;*!*/
+
+/*}*/
 
 .container div{
-    width: 48%; /*mettre 48% si juste 2 et enlever 3ie div dans catalog*/
+    width: 100%; /*mettre 48% si juste 2 et enlever 3ie div dans catalog*/
     text-align: justify;
     display: inline-block;
     padding: 10px;
     font-size: 120%;
     line-height: 30px;
+
 }
 
 .categorie h2 {
@@ -115,16 +127,16 @@ h2 {
     margin-top: 20px;
 }
 section:first-of-type{
-    margin-left: 20%;
+    margin-left: 12%;
 }
 section {
     display: inline-block;
     width: 430px;
     height: 320px;
-    border:2px solid black;
+    border:2px solid grey;
     background-color: royalblue;
     border-radius: 10px;
-    margin-left: 30px;
+    /*margin-left: 10px;*/
     margin-right: 20px;
     padding: 10px;
 }
@@ -154,7 +166,7 @@ section img {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    margin-left: 21%;
+    margin-left: 11%;
     margin-top: 80px;
 }
 
