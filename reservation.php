@@ -51,7 +51,9 @@ var_dump($id_forfait);
 ////?>
 
 <?php
-echo $forfait;
+echo $forfait['nom'];
+var_dump($forfait);
+
 //?>
 
 
