@@ -4,7 +4,7 @@ require_once('data/forfaits.php');// Inclusion des forfaits
 
 $id_forfait=$_GET['forfait_id']; /*faire un if array key exist */
 $forfait=get_forfaits()[$id_forfait];
-var_dump($id_forfait);
+//var_dump($id_forfait);
 ?>
 <main>
     <div id="wrapper">
@@ -46,13 +46,15 @@ var_dump($id_forfait);
 </main>
 
 <!--PARTIE DYNAMIQUE ICI-->
-<?php
-//echo get_forfaits();
-////?>
 
 <?php
-echo $forfait['nom'];
-var_dump($forfait);
+echo "<p> Vous avez choisi : ",$forfait['nom'],"</p>";
+echo "<p> De la catégorie : ",$forfait['categorie'],"</p>";
+echo "<p> Récapitulatif de votre forfait : ",$forfait['description'],"</p>";
+echo "<p> La durée de votre voyage sera de : ",$forfait['duree']," jours </p>";
+echo "<p> Pour la modique somme de : ",$forfait['prix']," $ </p>";
+echo "<p> Un aperçu de votre voyage : ",$forfait['photo1'],"</p>";
+//var_dump($forfait);
 
 //?>
 
