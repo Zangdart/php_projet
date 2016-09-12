@@ -48,13 +48,19 @@ $forfait=get_forfaits()[$id_forfait];
 <!--PARTIE DYNAMIQUE ICI-->
 
 <?php
-echo "<p> Vous avez choisi : ",$forfait['nom'],"</p>";
-echo "<p> De la catégorie : ",$forfait['categorie'],"</p>";
-echo "<p> Récapitulatif de votre forfait : ",$forfait['description'],"</p>";
-echo "<p> La durée de votre voyage sera de : ",$forfait['duree']," jours </p>";
-echo "<p> Pour la modique somme de : ",$forfait['prix']," $ </p>";
-echo "<p> Un aperçu de votre voyage : ",$forfait['photo1'],"</p>";
+echo "<div id='dynamique'>";
+
+echo "<p> Vous avez choisi : <span>",$forfait['nom'],"</span></p>";
+echo "<p> De la catégorie : <span>",$forfait['categorie'],"</span></p>";
+echo "<p> Récapitulatif de votre forfait :<span> ",$forfait['description'],"</span></p>";
+echo "<p> La durée de votre voyage sera de :<span> ",$forfait['duree']," jours </span></p>";
+echo "<p> Entre les dates suivantes :<span> ",$forfait['debut_saison']," et ", $forfait['fin_saison'],"</span></p>";
+echo "<p> Pour la modique somme de :<span> ",$forfait['prix']," $ </span></p>";
+echo "<p> Vous pouvez amener :<span> ",$forfait['nbr_max_animaux']," animaux </span></p>";
+echo "<p> Avec un coût de  :<span> ",$forfait['prix_animal']," $ par animal </span></p>";
+echo "<p> Un aperçu de votre voyage :<span> ",$forfait['photo1'],"</span></p>";
 //var_dump($forfait);
+echo "</div>";
 
 //?>
 

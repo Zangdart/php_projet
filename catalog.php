@@ -12,23 +12,6 @@ if (array_key_exists('categorie', $_GET) && in_array($_GET['categorie'], get_cat
 }
 
 ?>
-<?php
-//	foreach ($forfaits_data as $id => $forfait) {
-//		// On affiche le forfait si il n'y a pas de categorie de page
-//		// ou bien si le forfait appartient à la categorie demandée
-//		if (($categorie_page === false) || ($forfait[FORF_CATEGORY] == $categorie_page)) {
-//			?>
-<!--			<div class="forfait">-->
-<!--				<h2>--><?//= $forfait[FORF_NOM] ?><!--</h2>-->
-<!--				<p>--><?//= $forfait[FORF_DESCRIPTION] ?><!--</p>-->
-<!--				<p><img src="--><?//= IMG_PATH . $forfait[FORF_PHOTO1] ?><!--" alt=""/></p>-->
-<!---->
-<!--			</div>-->
-<!--			--><?php
-//		} // if
-//	}; // foreach
-//	?>
-
 	<?php
 	foreach (get_categories() as $categorie) { // Boucle sur les 3 categories
 		?>
