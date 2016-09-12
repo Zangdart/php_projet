@@ -10,7 +10,7 @@ if (array_key_exists('categorie', $_GET) && in_array($_GET['categorie'], get_cat
     $categorie_page = $_GET['categorie'];
 
 }
-var_dump($categorie_page);
+//var_dump($categorie_page);
 
 ?>
 <?php
@@ -19,9 +19,8 @@ require_once(dirname(__FILE__).'/views/page_top.php');// Inclusion des defines
 
 <?php
 foreach (get_categories() as $categorie) { // Boucle sur les 3 categories
+    if ((false == $categorie_page) || ($categorie == $categorie_page)) { // Si pas de categorie de page ou si la categorie de page est la catégorie de boucle
     ?>
-
-
     <div class="categorie">
         <h2><?= $categorie ?></h2>
         <?php
@@ -43,8 +42,8 @@ foreach (get_categories() as $categorie) { // Boucle sur les 3 categories
         }; // foreach forfait
         ?>
     </div>
-
     <?php
+    } // if  du haut sur la categorie_page
 }; // foreach categories
 ?>
 

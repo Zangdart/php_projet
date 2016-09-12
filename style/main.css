@@ -1,5 +1,6 @@
 body {
     background-color: lightblue;
+    background-image: url("../images/asanoha-400px.png");
 
 }
 
@@ -14,11 +15,17 @@ body {
 #wrapper {
     margin: 0 auto;
     width: 80%;
-}
 
+}
+#logo>img{
+    width: 400px;
+    height:150px;
+    position: relative;
+    top:10px;
+}
 nav {
     text-align: right; /*POUR METTRE LE MENU A DROITE*/
-    margin-top: 30px;
+    /*margin-top: 30px;*/
     margin-bottom: 30px;
 }
 header {
@@ -98,6 +105,8 @@ h2 {
     padding: 10px;
     font-size: 110%;
     line-height: 30px;
+    background-color: lightblue;
+
 
 }
 .container>div {
@@ -126,6 +135,7 @@ h2 {
     position:relative;
     left:40%;
     font-size: 110%;
+    color: royalblue;
 }
 
 .container a {
@@ -152,6 +162,7 @@ h2 {
     margin-bottom: 80px;
     padding: 30px;
     border-radius: 10px;
+    /*border: 2px solid royalblue;*/
 
 }
 
@@ -160,41 +171,58 @@ h2 {
     font-size: 120%;
     margin-top: 20px;
 }
-section:first-of-type{
-    margin-left: 12%;
-}
-section {
-    display: inline-block;
-    width: 430px;
-    height: 320px;
-    border:2px solid grey;
-    background-color: royalblue;
+
+#categories div{
+    border: 2px solid goldenrod;
     border-radius: 10px;
-    /*margin-left: 10px;*/
-    margin-right: 20px;
-    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(224,255,255,0.6);
+
+}
+#categories div p{
+   text-align: center;
 }
 
-section ul{
-    padding: 40px;
-    text-align: center;
-    line-height: 265%;
-    font-size: 120%;
-    list-style-type: hiragana;
+#categories div p img {
+    width: 960px;
+    height: 396px;
 }
 
-section ul li a {
-    text-decoration: none;
-    color: purple;
-    border: 2px solid antiquewhite;
-    border-radius: 10px;
-    padding: 10px;
-}
+/*section:first-of-type{*/
+    /*margin-left: 12%;*/
+/*}*/
+/*section {*/
+    /*display: inline-block;*/
+    /*width: 300px;*/
+    /*height: 320px;*/
+    /*border:2px solid grey;*/
+    /*background-color: royalblue;*/
+    /*border-radius: 10px;*/
+    /*!*margin-left: 10px;*!*/
+    /*margin-right: 20px;*/
+    /*padding: 10px;*/
+/*}*/
 
-section img {
-    width: 400px; /*400*/
-    height: 270px; /*270*/
-}
+/*section ul{*/
+    /*padding: 40px;*/
+    /*text-align: center;*/
+    /*line-height: 265%;*/
+    /*font-size: 120%;*/
+    /*list-style-type: hiragana;*/
+/*}*/
+
+/*section ul li a {*/
+    /*text-decoration: none;*/
+    /*color: purple;*/
+    /*border: 2px solid antiquewhite;*/
+    /*border-radius: 10px;*/
+    /*padding: 10px;*/
+/*}*/
+
+/*section img {*/
+    /*width: 400px; !*400*!*/
+    /*height: 270px; !*270*!*/
+/*}*/
 /*--------------------------------------------------------FORMULAIRE--------------------------------------------------*/
 #wrapper>h2 {
     margin-bottom:20px;
@@ -205,13 +233,15 @@ section img {
     padding:10px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: 2px solid royalblue;
 }
 p {
     text-align: justify;
+    font-size: 115% ;
 }
 
 p span {
-    color:red;
+    color:goldenrod;
 }
 /*-----------------------------------------------------SLIDER---------------------------------------------------------*/
 .toto{

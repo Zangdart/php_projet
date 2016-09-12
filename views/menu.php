@@ -1,7 +1,6 @@
 <?php
 require_once (dirname(__FILE__).'/../defines.php');
 ?>
-<!--<div id="logo"></div>-->
 <nav>
     <ul>
         <?php foreach ($menu_data as $label => $filename) { ?>
