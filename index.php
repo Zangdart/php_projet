@@ -24,14 +24,13 @@ require_once('views/page_top.php');// Inclusion des defines
         <p> Proin non nisl ut ante finibus condimentum. Aliquam erat volutpat. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl. Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien. Duis sit amet ornare dui. Donec porttitor urna sit amet enim faucibus, eget porta sem pretium. Nullam est ante, interdum eget neque vitae, ullamcorper accumsan nibh.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus. In vitae lacus id orci placerat imperdiet ac tempus urna.Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien. Duis sit amet ornare dui.Nullam  ante, interdum eget neque vitae, ullamcorper accumsan.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus. </p>
     </div>
-    <section><h2>Nos Nominations</h2>
+    <section><h2>Catégories et Nominations</h2>
     <ul>
-        <li>Meilleure agence de Voyages 2016</li>
-        <li>Meilleure agence de Voyages 2015</li>
-        <li>Employeur de choix 2014</li>
-        <li>Employeur de choix 2013</li>
-        <li>Employeur de choix 2012</li>
-<!--        <li>Meilleure "startup"2011</li>-->
+        <li><a href="catalog.php?categorie=Croisières">Les Croisières</a></li>
+        <li><a href="catalog.php?categorie=Sports d'hiver">Les sports d'hiver</a></li>
+        <li><a href="catalog.php?categorie=Nature">La Nature</a></li>
+        <li>Employeur de choix 2016</li>
+        <li>Employeur de choix 2015</li>
     </ul>
     </section><!--
     --><section><h2>Notre Equipe</h2>

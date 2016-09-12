@@ -86,7 +86,7 @@ $forfaits_data = array(
 		FORF_PHOTO2 => "ours_02.jpg"
 	),
 	'18' => array(
-		FORF_NOM => "Motoneige (Charlevoix, Québec)",
+		FORF_NOM => "Motoneige (Québec)",
 		FORF_CATEGORY => "Sports d'hiver",
 		FORF_DESCRIPTION => "Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien.Proin non nisl ut ante finibus condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus.   Aliquam erat volutpat. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl.",
 		FORF_DUREE => 1,
@@ -114,7 +114,7 @@ $forfaits_data = array(
 		FORF_PHOTO2 => "station_ski.jpg"
 	),
 	'23' => array(
-		FORF_NOM => "Ski de fond raquette à Tremblant",
+		FORF_NOM => "Ski de fond à Tremblant",
 		FORF_CATEGORY => "Sports d'hiver",
 		FORF_DESCRIPTION => "Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet nisl nunc, eu suscipit enim pretium in. Curabitur nec eleifend velit, vitae tristique ex. Sed laoreet eu ex nec tristique. Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus. Proin non nisl ut ante finibus condimentum. Aliquam erat volutpat. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl. ",
 		FORF_DUREE => 1,
@@ -167,12 +167,12 @@ $forfaits_data = array(
 		FORF_MAX_ANIMAUX => 0,
 		FORF_PRIX_ANIMAL => 0,
 		FORF_PHOTO1 => "chiens_traineau.jpg",
-		FORF_PHOTO2 => "Caribou.jpg"
+		FORF_PHOTO2 => "lac_louise.jpg"
 	),
 	'46' => array(
 		FORF_NOM => "Au sommet de l'Everest",
 		FORF_CATEGORY => "Nature",
-		FORF_DESCRIPTION => " Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus. Proin non nisl ut ante finibus condimentum. Aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl. Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien.Aliquam erat volutpat.",
+		FORF_DESCRIPTION => " Duis vulputate semper lectus a maximus. Etiam quis justo malesuada, congue lacus ac, interdum lacus. Proin non nisl ut ante finibus condimentum. Aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis blandit nisl. Cras finibus, nisl non cursus fringilla, justo nulla sagittis nibh, varius cursus velit quam sed nisl. Sed elit dui, condimentum sed arcu a, vestibulum accumsan sapien.Aliquam era.",
 		FORF_DUREE => 69,
 		FORF_DEBUT_SAISON => "2016-01-01",
 		FORF_FIN_SAISON => "2016-12-31",
