@@ -70,6 +70,25 @@ $(function() {
     });
 
 
+
+
+//ajout ici
+var categorie_courante = getParameterByName('FORF_CATEGORY');
+var active_tab_index = -1;
+console.log('La categorie courante est : ' , categorie_courante);
+switch(categorie_courante) {
+    case 'Croisières':
+        active_tab_index = 0;
+        break;
+    case 'Sports d\'hiver':
+        active_tab_index = 1;
+        break;
+    case 'Nature':
+        active_tab_index = 2;
+        break;
+
+    default:
+        active_tab_index = 0;
+}
+
 });
-
-

@@ -6,13 +6,29 @@ $id_forfait=$_GET['forfait_id']; /*faire un if array key exist */
 $forfait=get_forfaits()[$id_forfait];
 //var_dump($id_forfait);
 ?>
+<h2>Réservation</h2>
+
+<?php
+echo "<div id='dynamique'>";
+echo "<p> Vous avez choisi : <span>",$forfait['nom'],"</span></p>";
+echo "<p> De la catégorie : <span>",$forfait['categorie'],"</span></p>";
+echo "<p> Récapitulatif de votre forfait :<span> ",$forfait['description'],"</span></p>";
+echo "<p> La durée de votre voyage sera de :<span> ",$forfait['duree']," jours </span></p>";
+echo "<p> Entre les dates suivantes :<span> ",$forfait['debut_saison']," et ", $forfait['fin_saison'],"</span></p>";
+echo "<p> Pour la modique somme de :<span> ",$forfait['prix']," $ </span></p>";
+echo "<p> Vous pouvez amener :<span> ",$forfait['nbr_max_animaux']," animaux </span></p>";
+echo "<p> Avec un coût de  :<span> ",$forfait['prix_animal']," $ par animal </span></p>";
+//echo "<p> Un aperçu de votre voyage :<span> ",$forfait['photo1'],"</span></p>";
+//var_dump($forfait);
+echo "</div>";
+
+//?>
+
+<!-------------------------------------------PARTIE DYNAMIQUE ICI (TOP)------------------------------------------------>
+
+
 <main>
     <div id="wrapper">
-
-
-
-
-        <h2>Formulaires</h2>
         <div id="contenu">
             <form id="form_resa" name="form_resa">
                 <div>
@@ -44,26 +60,6 @@ $forfait=get_forfaits()[$id_forfait];
         </div>
 
 </main>
-
-<!--PARTIE DYNAMIQUE ICI-->
-
-<?php
-echo "<div id='dynamique'>";
-
-echo "<p> Vous avez choisi : <span>",$forfait['nom'],"</span></p>";
-echo "<p> De la catégorie : <span>",$forfait['categorie'],"</span></p>";
-echo "<p> Récapitulatif de votre forfait :<span> ",$forfait['description'],"</span></p>";
-echo "<p> La durée de votre voyage sera de :<span> ",$forfait['duree']," jours </span></p>";
-echo "<p> Entre les dates suivantes :<span> ",$forfait['debut_saison']," et ", $forfait['fin_saison'],"</span></p>";
-echo "<p> Pour la modique somme de :<span> ",$forfait['prix']," $ </span></p>";
-echo "<p> Vous pouvez amener :<span> ",$forfait['nbr_max_animaux']," animaux </span></p>";
-echo "<p> Avec un coût de  :<span> ",$forfait['prix_animal']," $ par animal </span></p>";
-echo "<p> Un aperçu de votre voyage :<span> ",$forfait['photo1'],"</span></p>";
-//var_dump($forfait);
-echo "</div>";
-
-//?>
-
 
 <?php
 require_once('views/page_bottom.php');// Inclusion des defines
