@@ -30,30 +30,29 @@ echo "</div>";
 <main>
     <div id="wrapper">
         <div id="contenu">
-            <form id="form_resa" name="form_resa">
+            <form id="form_resa" name="form_resa" method="post">
                 <div>
                     <label for="nom">Nom:</label>
-                    <input name="nom" id="nom" type="text"/>
+                    <input name="nom" id="nom" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de nom"/>
                 </div>
                 <div>
                     <label for="prenom">Prénom:</label>
-                    <input name="prenom" id="prenom" type="text"/>
+                    <input name="prenom" id="prenom" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de prénom"/>
                 </div>
                 <div>
                     <label for="adresse">Adresse:</label>
-                    <input name="adresse" id="adresse" type="text"/>
+                    <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9]{1,}" title="Mettre une adresse avec chiffre et lettres"/>
                 </div>
                 <div>
                     <label for="email">Courriel:</label>
-                    <input name="email" id="email" type="text"/>
+                    <input name="email" id="email" type="text" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  title="Mettre un @ dans votre adresse"/>
                 </div>
                 <div>
                     <label for="tel">#tel:</label>
-                    <input name="tel" id="tel" type="text"/>
+                    <input name="tel" id="tel" type="text" required="required" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format : 514-555-5555"/>
                 </div>
                 <div>
                     <input type="submit" value="Réserver"/>
-                    <input type="submit" value="Annuler"/>
                 </div>
 
             </form>
