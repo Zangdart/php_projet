@@ -89,17 +89,34 @@ $validation = array(
 //<!--// Champ lastname-->
 $validation['lastname']['value'] = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
 $validation['lastname']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation['lastname']['value']));
-$validation['lastname']['err_msg']= "Pas bon";
+$validation['lastname']['err_msg']= "";
+
+if(!$validation['lastname']['is_valid']){                   //METTRE LA VALIDATION
+    $validation['lastname']['err_msg']= "Veuillez entrer votre nom ";
+}
 
 
 //<!--// Champ firstname-->
 $validation['firstname']['value'] = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
 $validation['firstname']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation['firstname']['value']));
+$validation['firstname']['err_msg']= "";
+
+if(!$validation['firstname']['is_valid']){                   //METTRE LA VALIDATION
+    $validation['firstname']['err_msg']= "Veuillez entrer votre prénom";
+}
 
 //<!--// Champ email-->
 $validation['email']['value'] = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $validation['email']['is_valid'] = false !== filter_var($validation['email']['value'], FILTER_VALIDATE_EMAIL);
-$validation['email']['err_msg']= "votre email n est pas valide";
+$validation['email']['err_msg']= "";
+
+if(!$validation['email']['is_valid']){                   //METTRE LA VALIDATION
+    $validation['email']['err_msg']= "Veuillez mettre un @ et un . dans votre email";
+}
+
+
+
+
 // Validité totale du questionnaire : On passe en revue les valeurs 'is_valid' de tous les champs
 $formulaire_valide = true;
 foreach ($validation as $field) {
@@ -154,21 +171,31 @@ echo "</div>";
                     <input name="lastname" id="lastname" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de nom"
                     class="<?php echo $validation['lastname']['is_valid'] ? '' : 'champ_invalide'; ?>"
                     value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"
+                    <?= empty($validation['lastname']['err_msg']) ? '' : "<span>{$validation['lastname']['err_msg']}</span>" ?>
+
                 </div>
 
                 <div>
                     <label for="firstname">Prénom:</label>
                     <input name="firstname" id="firstname" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de prénom" class="<?php echo $validation['firstname']['is_valid'] ? '' : 'champ_invalide'; ?>"
                            value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"/>
+
+                    <?= empty($validation['firstname']['err_msg']) ? '' : "<span>{$validation['firstname']['err_msg']}</span>" ?>
+
                 </div>
 
                 <div>
                     <label for="adresse">Adresse:</label>
-                    <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9_ ]{1,100}" title="Mettre une adresse avec chiffres et lettres"/>
+                    <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9_ ]{1,100}" title="Mettre une adresse avec chiffres et lettres" />
+
+
                 </div>
                 <div>
                     <label for="email">Courriel:</label>
-                    <input name="email" id="email" type="text" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  title="Mettre un @ dans votre adresse"/>
+                    <input name="email" id="email" type="text" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  title="Mettre un @ dans votre adresse" class="<?php echo $validation['email']['is_valid'] ? '' : 'champ_invalide'; ?>"
+                           value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"/>
+
+                    <?= empty($validation['email']['err_msg']) ? '' : "<span>{$validation['email']['err_msg']}</span>" ?>
                 </div>
                 <div>
                     <label for="tel">Téléphone:</label>
