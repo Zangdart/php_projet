@@ -10,6 +10,60 @@ $forfait=get_forfaits()[$id_forfait];
 /**
  * Fomulaire à valider
  */
+
+// Format des dates utilisé
+define('FORMAT_DATE', 'y-m-d');
+
+// Les différents noms de champs du formulaire
+define('CHAMP_DATE', 'date_debut');
+
+// La date d'aujourd'hui sous forme d'objet DateTime
+// Servira à la validation et à l'initialisation des champs de formulaire
+$aujourdhui = new DateTime();
+
+// Variable booléenne qui indique si on est en reception
+//var_dump($_POST);
+$en_reception = array_key_exists(CHAMP_DATE, $_POST) /*&& array_key_exists(DATE_FIN, $_POST)*/;
+
+// Validation du champ CHAMP_DATE
+$date_ok = false; // Par défaut, on met tous les champs à NON valide jusqu'à preuve du contraire
+$date_val = null;
+$date_msg = '';
+
+if ($en_reception) {
+    // Première vérification : Le format de la date saisie est conforme à celui défini
+    $date_str = filter_input(INPUT_POST, CHAMP_DATE, FILTER_SANITIZE_STRING); // Nottoyer la chaîne reçue en POST
+    $date_tb = date_parse_from_format(FORMAT_DATE, $date_str); // Faire vérifier le format date par PHP
+    $date_ok = checkdate($date_tb['month'], $date_tb['day'], $date_tb['year']);
+    if ( ! $date_ok) {
+        $date_msg = "La date ne correspond pas au format (" . FORMAT_DATE . ") ou n'est pas valide.";
+    }
+    // Second vérification : La date est postérieure à aujourd'hui
+    if ($date_ok) {
+        $date_val = DateTime::createFromFormat(FORMAT_DATE, $date_str);
+        $date_ok = $date_val >= $aujourdhui;
+        if ( ! $date_ok) {
+            $date_msg = "La date doit être postérieure à aujourd'hui.";
+        }
+    }
+}
+
+// Validité totale du questionnaire : On passe en revue les valeurs 'is_valid' de tous les champs
+//$formulaire_valide = $date_ok;
+//
+//// Si le questionnaire est valide, on affiche un résumé (ou une redirection vers une autre page)
+//if ($formulaire_valide) {
+//    // Enregistrement ou traitement des données
+//    // Eventuellement affichage récapitulatif des données
+//    // Eventuellement redirection avec header('location: apresFormulaire.php');
+//    exit();
+//}
+
+?>
+<?php
+/**
+ * Fomulaire à valider
+ */
 //var_dump($_POST);
 
 
@@ -35,6 +89,8 @@ $validation = array(
 //<!--// Champ lastname-->
 $validation['lastname']['value'] = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
 $validation['lastname']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation['lastname']['value']));
+$validation['lastname']['err_msg']= "Pas bon";
+
 
 //<!--// Champ firstname-->
 $validation['firstname']['value'] = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
@@ -43,6 +99,7 @@ $validation['firstname']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation
 //<!--// Champ email-->
 $validation['email']['value'] = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 $validation['email']['is_valid'] = false !== filter_var($validation['email']['value'], FILTER_VALIDATE_EMAIL);
+$validation['email']['err_msg']= "votre email n est pas valide";
 // Validité totale du questionnaire : On passe en revue les valeurs 'is_valid' de tous les champs
 $formulaire_valide = true;
 foreach ($validation as $field) {
@@ -58,13 +115,15 @@ if ($formulaire_valide) {
     // Eventuellement affichage récapitulatif des données
     // Eventuellement redirection avec header('location: apresFormulaire.php');
     exit();
+//    exit('<h1>Votre réservation est confirmée, merci!</h1>');
+
 }
 
 ?>
 
 
 
-<!-- ************************************Debut du form********************************************-->
+<!-- **********************************************Debut du form*****************************************************-->
 <h2>Réservation</h2>
 
 <?php
@@ -89,15 +148,20 @@ echo "</div>";
 <main>
     <div id="wrapper">
         <div id="contenu">
-            <form id="form_resa" name="form_resa" method="post">
+            <form id="form_resa" name="form_resa" method="post" novalidate="novalidate">
                 <div>
-                    <label for="nom">Nom:</label>
-                    <input name="nom" id="nom" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de nom"/>
+                    <label for="lastname">Nom:</label>
+                    <input name="lastname" id="lastname" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de nom"
+                    class="<?php echo $validation['lastname']['is_valid'] ? '' : 'champ_invalide'; ?>"
+                    value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : ''; ?>"
                 </div>
+
                 <div>
-                    <label for="prenom">Prénom:</label>
-                    <input name="prenom" id="prenom" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de prénom"/>
+                    <label for="firstname">Prénom:</label>
+                    <input name="firstname" id="firstname" type="text" required="required" pattern="[a-zA-Z]{1,20}" title="Mettre une majuscule en début de prénom" class="<?php echo $validation['firstname']['is_valid'] ? '' : 'champ_invalide'; ?>"
+                           value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : ''; ?>"/>
                 </div>
+
                 <div>
                     <label for="adresse">Adresse:</label>
                     <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9_ ]{1,100}" title="Mettre une adresse avec chiffres et lettres"/>
@@ -114,10 +178,19 @@ echo "</div>";
                     <label for="nb-participants">Nombre de participants:</label>
                     <input required="required" name="nb-participants" id="nb-participants" type="number" value="1" step="1" max="<?php echo $forfait['places_dispo']?>" min=1?>
                 </div>
-                <div>
-                    <label for="date-debut">Vos dates : </label>
-                    <input required="required" name="date-debut" id="date-debut" type="date" min="<?php echo $forfait['debut_saison']?> max="<?php echo $forfait['fin_saison']?>">
+                <div class="form-line">
+                    <label for="<?=CHAMP_DATE?>">Date d'arrivée</label>
+                    <input type="datetime"
+                           name="<?=CHAMP_DATE?>"
+                           id="<?=CHAMP_DATE?>"
+                           class="<?= $en_reception && ! $date_ok ? 'champ_invalide' : '' ; ?>"
+                           value="<?php echo isset($_POST[CHAMP_DATE]) ? $_POST[CHAMP_DATE] : $aujourdhui->format(FORMAT_DATE); ?>" />
+                    <?= empty($date_msg) ? '' : "<span>$date_msg</span>" ?>
                 </div>
+<!--                <div>-->
+<!--                    <label for="date-debut">Vos dates : </label>-->
+<!--                    <input required="required" name="date-debut" id="date-debut" type="date" min="--><?php //echo $forfait['debut_saison']?><!-- max="--><?php //echo $forfait['fin_saison']?><!--">-->
+<!--                </div>-->
                 <div>
                     <input id="reserver" type="submit" value="Réserver"/>
                 </div>
