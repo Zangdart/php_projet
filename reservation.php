@@ -84,6 +84,11 @@ $validation = array(
             'value' => null,
             'err_msg' => '',
         ),
+    'adresse' => array(
+        'is_valid' => false,
+        'value' => null,
+        'err_msg' => '',
+    ),
 );
 
 //<!--// Champ lastname-->
