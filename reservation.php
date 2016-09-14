@@ -118,7 +118,13 @@ $validation['email']['err_msg']= "";
 if(!$validation['email']['is_valid']){                   //METTRE LA VALIDATION
     $validation['email']['err_msg']= "Veuillez mettre un @ et un . dans votre email";
 }
+$validation['adresse']['value'] = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_STRING);
+$validation['adresse']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation['adresse']['value']));
+$validation['adresse']['err_msg']= "";
 
+if(!$validation['adresse']['is_valid']){                   //METTRE LA VALIDATION
+    $validation['adresse']['err_msg']= "Veuillez entrer votre adresse avec chiffres et lettres";
+}
 
 
 
@@ -158,7 +164,7 @@ echo "<p> Entre les dates suivantes :<span> ",$forfait['debut_saison']," et ", $
 echo "<p> Pour la modique somme de :<span> ",$forfait['prix']," $ </span></p>";
 echo "<p> Vous pouvez amener :<span> ",$forfait['nbr_max_animaux']," animaux </span></p>";
 echo "<p> Avec un coût de  :<span> ",$forfait['prix_animal']," $ par animal </span></p>";
-//echo "<p> Un aperçu de votre voyage :<span> ",$forfait['photo1'],"</span></p>";
+//echo "<img  src='images/$forfait[photo1]' />";
 //var_dump($forfait);
 echo "</div>";
 
@@ -191,7 +197,10 @@ echo "</div>";
 
                 <div>
                     <label for="adresse">Adresse:</label>
-                    <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9_ ]{1,100}" title="Mettre une adresse avec chiffres et lettres" />
+                    <input name="adresse" id="adresse" type="text" required="required" pattern="[a-zA-Z0-9_ ]{1,100}" title="Mettre une adresse avec chiffres et lettres"  class="<?php echo $validation['adresse']['is_valid'] ? '' : 'champ_invalide'; ?>"
+                    value="<?php echo isset($_POST['adresse']) ? $_POST['adresse'] : ''; ?>"/>
+
+                    <?= empty($validation['adresse']['err_msg']) ? '' : "<span>{$validation['adresse']['err_msg']}</span>" ?>
 
 
                 </div>
