@@ -142,6 +142,7 @@ if ($formulaire_valide) {
     // Enregistrement ou traitement des données
     // Eventuellement affichage récapitulatif des données
     // Eventuellement redirection avec header('location: apresFormulaire.php');
+    header('Location:index.php');
     exit();
 //    exit('<h1>Votre réservation est confirmée, merci!</h1>');
 
