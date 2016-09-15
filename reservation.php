@@ -89,6 +89,11 @@ $validation = array(
         'value' => null,
         'err_msg' => '',
     ),
+    'tel' => array(
+        'is_valid' => false,
+        'value' => null,
+        'err_msg' => '',
+    ),
 );
 
 //<!--// Champ lastname-->
@@ -124,6 +129,13 @@ $validation['adresse']['err_msg']= "";
 
 if(!$validation['adresse']['is_valid']){                   //METTRE LA VALIDATION
     $validation['adresse']['err_msg']= "Veuillez entrer votre adresse avec chiffres et lettres";
+}
+$validation['tel']['value'] = filter_input(INPUT_POST, 'tel', FILTER_SANITIZE_STRING);
+$validation['tel']['is_valid'] = (1 === preg_match('/\w{2,}/', $validation['tel']['value']));
+$validation['tel']['err_msg']= "";
+
+if(!$validation['tel']['is_valid']){                   //METTRE LA VALIDATION
+    $validation['tel']['err_msg']= "Format : XXX-XXX-XXXX";
 }
 
 
@@ -214,7 +226,10 @@ echo "</div>";
                 </div>
                 <div>
                     <label for="tel">Téléphone:</label>
-                    <input name="tel" id="tel" type="text" required="required" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format : 514-555-5555"/>
+                    <input name="tel" id="tel" type="text" required="required" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format : 514-555-5555" class="<?php echo $validation['tel']['is_valid'] ? '' : 'champ_invalide'; ?>"
+                           value="<?php echo isset($_POST['tel']) ? $_POST['tel'] : ''; ?>"/>
+
+                    <?= empty($validation['tel']['err_msg']) ? '' : "<span>{$validation['tel']['err_msg']}</span>" ?>
                 </div>
                 <div>
                     <label for="nb-participants">Nombre de participants:</label>

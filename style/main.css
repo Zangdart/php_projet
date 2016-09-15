@@ -227,7 +227,7 @@ p {
 }
 
 p span {
-    color:goldenrod;
+    color:royalblue;
 }
 
 /*-----------------------------------------------------SLIDER(BAS)----------------------------------------------------*/
@@ -302,3 +302,7 @@ p span {
     border: 1px solid #ff0000;
     color:red;
 }
+
+/*div span {*/
+    /*color:goldenrod;*/
+/*}*/
